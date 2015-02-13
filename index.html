@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Video Merge Creator</title>
+</head>
+<body>
+<header>
+	<h1 class="title">Video Merge Tag Creator</h1>
+</header>
+	<div class="page-wrap">
+		<h2 class="instructions">Enter a link from a supported service below:</h2>
+		<div class="fieldwrapper group">
+			<input type="text" name="link" id="input" class="input" placeholder="Add your link :)"><button class="options" id="options">More Options</button>
+
+		</div>
+			<div class="optionsBlock" id="optionsBlock">
+			<ul class="group">
+				<li>
+					<div class="switch">
+						<input type="checkbox" name="width" value="Width">
+						<label for="width"><span></span>Max Width</label>
+					</div>
+				</li>
+				<li>
+					<div class="switch">
+						<input type="checkbox" name="title" value="Title">
+						<label for="title"><span></span>Title</label>
+					</div>
+				</li>
+				<li>
+					<div class="switch">
+						<input type="checkbox" name="border" value="Border">
+						<label for="border"><span></span>Border</label>
+					</div>
+				</li>
+				<li>
+				<div class="switch">
+					<input type="checkbox" name="trim_border" value="Trim_Border">
+					<label for="trim_border"><span></span>Trim Border</label>
+					</div>
+				</li>
+				<li>
+					<div class="switch">
+						<input type="checkbox" name="ratings" value="Ratings">
+						<label for="ratings"><span></span>Ratings</label>
+					</div>
+				</li>
+				<li>
+					<div class="switch">
+						<input type="checkbox" name="views" value="Views">
+						<label for="views"><span></span>Views</label>
+					</div>
+				</li>
+				<li>
+					<div class="switch">
+						<input type="checkbox" name="watch_url" value="Watch_URL">
+						<label for="watch_url"><span></span>Watch URL</label>
+					</div>
+				</li>
+			</ul>
+			</div>
+			<div class="outputBlock group">
+				<input type="submit" id="submit" value="submit">
+				<h2 class="instructions">Click below to copy the merge tag to your clipboard.</h2>
+				<pre class="output" id="output">*|YOUTUBE:[$vid=fj77lSG6Bl8]|*</pre>
+			</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
+
+</div>

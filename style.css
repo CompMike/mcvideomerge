@@ -1,0 +1,282 @@
+/*
+TODO:
+Make clickable box the same size as entire switch
+Figure out why button and page is using lucida grande, wtf?
+Insert fontello fonts for X and check.
+Add pretty input element for max-width
+*/
+
+
+
+
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {	box-sizing: border-box; }
+html,body{
+	width:100%;
+	height:100%;
+	font-size: 15px;
+	box-sizing: border-box;
+}
+//Clearfix
+.group:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+body {
+	background: #fff;
+	font-family: 'Helvetica Neue', Arial, Helvetica, Verdana, sans-serif;
+	color: rgb(89, 89, 89);
+	text-align: center;
+}
+input {
+		font-family: 'Helvetica Neue', Arial, Helvetica, Verdana, sans-serif;
+}
+header {
+	background: #2C9AB7;
+	padding-top: 1em;
+	color: white;
+}
+.title {
+	font-weight: bold;
+	font-size: 3em;
+	padding:1em 0;
+}
+.page-wrap {
+	width: 800px;
+	margin: 2em auto 0 auto;
+}
+.instructions {
+	font-size: 1.1em;
+}
+
+.fieldwrapper {
+	position: relative;
+	display: block;
+	clear: both;
+	overflow: visible;
+	width: 100%;
+	height: 75px;
+	margin: 0;
+	padding: 0;
+}
+.input {
+	width: 100%;
+	padding: 8px 20% 8px 8px;
+	left: 0;
+	top: 0;
+	margin: 2em 0 2em 0;
+	border: 2px solid #ccc;
+	border-radius: 3px;
+	position: absolute;
+	font-size: 1em;
+}
+.input:focus {
+	border: 2px solid #52bad5;
+	outline: none;
+}
+.options {
+	height: 33px;
+	padding: 0 18px;
+	margin: 2em 0 2em 0;
+	right: 2px;
+	top: 6px;
+	position: absolute;
+	border-radius: 0 1px 1px 0;
+	border: none;
+	border-left: 0;
+	background-color: #737373;
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+.options:hover {
+	background-color: #616161;
+}
+.options:focus {
+	outline:0;
+}
+
+
+/*remove webkit autofill ugly yellow*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.optionsBlock {
+	width: 100%;
+	float: left;
+	position: absolute;
+	left:-9999px;
+	top:0;
+	opacity: 0;
+}
+.optionsBlock.show {
+	position: relative;
+	left:0;
+	top: 0;
+	opacity: 1;
+		-webkit-transition: opacity 0.5s ease-in-out 0s;
+	-ms-transition: opacity 0.5s ease-in-out 0s;
+	transition: opacity 0.5s ease-in-out 0s;
+}
+.optionsBlock ul li{
+	float: left;
+	text-align: center;
+	display: inline-block;
+	width: 33%;
+	padding: 2em;
+}
+.optionsBlock input {
+	display: inline;
+}
+.switch {
+	position: relative;
+	width: 175px;
+	height: 40px;
+}
+.switch input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	cursor: pointer;
+}
+.switch label {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+.switch input~label span {
+	display: block;
+	position: relative;
+	float: left;
+	top: -10px;
+	left: -10px;
+	width: 85px;
+	height: 40px;
+	background-color: #e85c41;
+	border-radius: 40px;
+	-webkit-transition: background 0.2s ease-in-out 0s;
+	-ms-transition: background 0.2s ease-in-out 0s;
+	transition: background 0.2s ease-in-out 0s;
+}
+/*off*/
+.switch input~label span:before {
+	content: " ";
+	line-height: 1.5;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 36px;
+	height: 36px;
+	display: block;
+	border-radius: 50%;
+	background-color: #fff;
+	-webkit-transition: background 0.2s ease-in-out 0s;
+	-ms-transition: background 0.2s ease-in-out 0s;
+	transition: background 0.2s ease-in-out 0s;
+	-webkit-transition: left 0.1s ease-in 0s;
+	-ms-transition: left 0.1s ease-in 0s;
+	transition: left 0.1s ease-in 0s;
+
+}
+.switch label:before {
+	content: "✕";
+	position: absolute;
+	top: -2px;
+	left: 47px;
+	color: #fff;
+	z-index: 1;
+	font-size: 1.5em;
+	-webkit-transition: left 0.1s ease-in 0s;
+	-ms-transition: left 0.1s ease-in 0s;
+	transition: left 0.1s ease-in 0s;
+}
+/*on*/
+.switch input:checked~label span {
+	background-color: #72c1b0;
+
+}
+.switch input:checked~label span:before {
+	position: absolute;
+	top: 2px;
+	left: 47px;
+}
+.switch input:checked~label:before {
+	content: "✔";
+		position: absolute;
+		top: -2px;
+		left: 4px;
+		color: #fff;
+		z-index: 1;
+		font-size: 1.5em;
+}
+
+.outputBlock {
+	clear: both;
+	padding-top: 2em;
+}
+.output {
+	margin: .5em 0;
+	font-size: 2em;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	word-wrap: break-word;
+	background-color: #72c1b0;
+	border-radius: 3px;
+	padding: 1em;
+}
