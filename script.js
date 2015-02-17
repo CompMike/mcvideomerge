@@ -16,19 +16,26 @@ var input;
 // 	var input = $('#input').val();
 // 	$('#output').append(input);
 // });
+	var findService = function(service,url) {
+		if (service === "youtube") {
+			output = "*|YOUTUBE:[$vid=]|*";
+			$("#output").append(output);
+		} else {
+			output = "unsupported service";
+			$("#output").append(output);
+		}
+	}
 $('#submit').on("click", function(){
 	input = $('#input').val();
 	var yt = /^https?:\/\/(?:www\.)?youtube.com\/watch\?v=\w+(&\S*)?$/;
 	if (input.match(yt) != null) {
 		console.log("this is youtube");
+		findService("youtube",input);
 	} else {
 		console.log("not youtube");
 	}
 
 	//find service
-	var findService = function(service) {
-
-	}
 });
 
 //determine what service the link uses
