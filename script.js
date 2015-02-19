@@ -6,13 +6,14 @@ $options.click(function() {
 	$ob.toggleClass('show');
 });
 var output;
+var ytid;
 
 //grab the link from the input field and stop default action
 var input;
 	var findService = function(service,url) {
 		if (service === "youtube") {
-			output = "*|YOUTUBE:[$vid=]|*";
-			$("#output").append(output);
+			output = "*|YOUTUBE:[$vid="+ ytid + "]|*";
+			$("#output").html(output);
 		} else {
 			output = "unsupported service";
 			$("#output").append(output);
@@ -22,7 +23,9 @@ var input;
 $('#submit').on("click", function(){
 	input = $('#input').val();
 	//http://www.rubular.com/r/y0oZBNSzNW
-	var yt = /^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/)*)\??v?=?([^#\&\?]*).*/;
+	var yt = /^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/)*)\??v?=?([^#\&\?]*).*([\w-]{11})/;
+	ytid = input.match(yt)[4];
+	console.log(ytid);
 	if (input.match(yt) != null) {
 		console.log("this is youtube");
 		findService("youtube",input);
