@@ -9,13 +9,6 @@ var output;
 
 //grab the link from the input field and stop default action
 var input;
-// console.log(input);
-// var yt = "/(youtube)/g";
-// var output = "";
-// $('#input').focus(function() {
-// 	var input = $('#input').val();
-// 	$('#output').append(input);
-// });
 	var findService = function(service,url) {
 		if (service === "youtube") {
 			output = "*|YOUTUBE:[$vid=]|*";
@@ -23,16 +16,17 @@ var input;
 		} else {
 			output = "unsupported service";
 			$("#output").append(output);
+			console.log("not youtube");
 		}
 	}
 $('#submit').on("click", function(){
 	input = $('#input').val();
-	var yt = /^https?:\/\/(?:www\.)?youtube.com\/watch\?v=\w+(&\S*)?$/;
+	//http://www.rubular.com/r/y0oZBNSzNW
+	var yt = /^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/)*)\??v?=?([^#\&\?]*).*/;
 	if (input.match(yt) != null) {
 		console.log("this is youtube");
 		findService("youtube",input);
 	} else {
-		console.log("not youtube");
 	}
 
 	//find service
