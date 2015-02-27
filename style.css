@@ -141,7 +141,11 @@ header {
 .options:focus {
 	outline:0;
 }
+.process {
+	position: relative;
+	border-radius: 4px;
 
+}
 
 /*remove webkit autofill ugly yellow*/
 input:-webkit-autofill {
