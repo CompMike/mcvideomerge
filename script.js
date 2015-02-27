@@ -9,6 +9,7 @@ var output;
 var ytid;
 var input;
 var vmid;
+var vzid;
 
 //Youtube Regex
 //http://www.rubular.com/r/j5oqOj62df
@@ -22,6 +23,10 @@ var yt = /^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/
 //https://vimeo.com/groups/*/videos/*
 var vm = /vimeo.com\/(\d+)($|\/)/;
 
+//http://view.vzaar.com/344767.flashplayer
+//http://www.rubular.com/r/CkKZyVnBOi
+var vz = /vzaar.com\/(\d+)/;
+
 //grab the link from the input field and stop default action
 var findService = function(service,url) {
 	if (service === "youtube") {
@@ -29,6 +34,9 @@ var findService = function(service,url) {
 		$("#output").html(output);
 	} else if(service === "vimeo"){
 		output = "*|VIMEO:[$vid="+ vmid + "]|*";
+		$("#output").html(output);
+	} else if(service === "vzaar"){
+		output = "*|VZAAR:[$vid="+ vzid + "]|*";
 		$("#output").html(output);
 	}
 }
@@ -44,6 +52,12 @@ $('#submit').on("click", function(){
 		console.log("something");
 		console.log("this is not youtube");
 		findService("vimeo",input);
+	}
+	if (input.match(vz) != null) {
+	vzid = input.match(vz)[1];
+	console.log("something");
+	console.log("this is not youtube");
+	findService("vzaar",input);
 	}
 
 	//find service
