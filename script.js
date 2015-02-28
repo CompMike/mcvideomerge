@@ -10,6 +10,7 @@ var ytid;
 var input;
 var vmid;
 var vzid;
+var options = "";
 
 //Youtube Regex
 //http://www.rubular.com/r/j5oqOj62df
@@ -30,7 +31,7 @@ var vz = /vzaar.com\/(\d+)/;
 //grab the link from the input field and stop default action
 var findService = function(service,url) {
 	if (service === "youtube") {
-		output = "*|YOUTUBE:[$vid="+ ytid + "]|*";
+		output = "*|YOUTUBE:[$vid="+ ytid + options + "]|*";
 		$("#output").html(output);
 	} else if(service === "vimeo"){
 		output = "*|VIMEO:[$vid="+ vmid + "]|*";
@@ -59,52 +60,16 @@ $('#submit').on("click", function(){
 	console.log("this is not youtube");
 	findService("vzaar",input);
 	}
-
 	//find service
 });
 
-//determine what service the link uses
+//Options
+var addOptions = function() {
+		if($(this).val() === "Title") {
+		 options = options + ", $title=N";
+		}
+	console.log(options);
+}
 
-//parse youtube
-
-//parse bliptv
-
-//parse vimeo
-
-//parse vzaar
-
-//parse wistia
-
-
-//output onto page
-// var output = "*|" + service + ":[$vid=" + id + "]|*";
-
-// outputwithoptions
-// //copy to clipboard
-// function copy2clipboard() {
-
-// }
-
-
-  // $(".button").click(function(){
-
-  //   /*convert away*/
-  //   if($('#on').is(':checked')) {
-  //     $('#theResult').val(converter($('textarea#theText').val(), 'ascii'));
-  //   }
-  //   else {
-  //     $('#theResult').val(converter($('textarea#theText').val(), 'binary'));
-  //   }
-
-  //   /* bring her down*/
-  //   $("#panel").slideDown("slow");
-  // });
-
-  // /*tidy on change*/
-  // $("#theText,:radio").click(function(){
-  //    /* send her up*/
-  //   $("#panel").slideUp("slow");
-  //   this.value = '';
-  // });
-
-});
+$("input[type=checkbox]").on("click",addOptions);
+})
