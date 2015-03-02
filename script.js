@@ -38,16 +38,16 @@ var ws = /home.wistia.com\/m\/(\w+)($|\/)/;
 var findService = function(service,url) {
 	if (service === "youtube") {
 		output = "*|YOUTUBE:[$vid="+ ytid;
-		$("#output").html(output  + "]|*");
+		$("#output").html(output + "]|*");
 	} else if(service === "vimeo"){
 		output = "*|VIMEO:[$vid="+ vmid;
 		$("#output").html(output + "]|*");
 	} else if(service === "vzaar"){
-		output = "*|VZAAR:[$vid=";
-		$("#output").html(output+ vzid + "]|*");
+		output = "*|VZAAR:[$vid=" + vzid;
+		$("#output").html(output + "]|*");
 	} else if(service === "wistia"){
-		output = "*|WISTIA:[$vid=";
-		$("#output").html(output+ wsid + "]|*");
+		output = "*|WISTIA:[$vid=" + wsid;
+		$("#output").html(output + "]|*");
 	}
 }
 $('#submit').on("click", function(){
@@ -63,14 +63,14 @@ $('#submit').on("click", function(){
 		findService("vimeo",input);
 	}
 	if (input.match(vz) != null) {
-	vzid = input.match(vz)[1];
-	console.log("this is vzaar");
-	findService("vzaar",input);
+		vzid = input.match(vz)[1];
+		console.log("this is vzaar");
+		findService("vzaar",input);
 	}
 	if (input.match(ws) != null) {
-	wsid = input.match(ws)[1];
-	console.log("this is wistia");
-	findService("wistia",input);
+		wsid = input.match(ws)[1];
+		console.log("this is wistia");
+		findService("wistia",input);
 	}
 });
 
