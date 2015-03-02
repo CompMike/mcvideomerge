@@ -10,53 +10,53 @@
 <header>
 	<h1 class="title">Video Merge Tag Creator</h1>
 </header>
+<div id="form">
 	<div class="page-wrap">
 		<h2 class="instructions">Enter a link from a supported service below:</h2>
 		<div class="fieldwrapper group">
 			<input type="text" name="link" id="input" class="input" placeholder="Add your link :)"><button class="options" id="options">More Options</button>
-
 		</div>
 			<div class="optionsBlock" id="optionsBlock">
 			<ul class="group">
 				<li>
 					<div class="switch">
-						<input type="checkbox" name="width" value="Width" id="width">
+						<input type="checkbox" name="width" value="width" id="width">
 						<label for="width"><span></span>Max Width</label>
 					</div>
 				</li>
 				<li>
 					<div class="switch">
-						<input type="checkbox" name="title" value="Title" id="title">
+						<input type="checkbox" name="title" value="title" id="title">
 						<label for="title"><span></span>Title</label>
 					</div>
 				</li>
 				<li>
 					<div class="switch">
-						<input type="checkbox" name="border" value="Border" id="border">
+						<input type="checkbox" name="border" value="border" id="border">
 						<label for="border"><span></span>Border</label>
 					</div>
 				</li>
 				<li>
 				<div class="switch">
-					<input type="checkbox" name="trim_border" value="Trim_Border" id="trim_border">
+					<input type="checkbox" name="trim_border" value="trim_border" id="trim_border">
 					<label for="trim_border"><span></span>Trim Border</label>
 					</div>
 				</li>
 				<li>
 					<div class="switch">
-						<input type="checkbox" name="ratings" value="Ratings" id="ratings">
+						<input type="checkbox" name="ratings" value="ratings" id="ratings">
 						<label for="ratings"><span></span>Ratings</label>
 					</div>
 				</li>
 				<li>
 					<div class="switch">
-						<input type="checkbox" name="views" value="Views" id="views">
+						<input type="checkbox" name="views" value="views" id="views">
 						<label for="views"><span></span>Views</label>
 					</div>
 				</li>
 				<li>
 					<div class="switch">
-						<input type="checkbox" name="watch_url" value="Watch_URL" id="watch_url">
+						<input type="checkbox" name="watch_url" value="watch_url" id="watch_url">
 						<label for="watch_url"><span></span>Watch URL</label>
 					</div>
 				</li>
@@ -65,9 +65,10 @@
 			<div class="outputBlock group">
 				<input type="submit" id="submit" class="options process" value="Process">
 				<h2 class="instructions">Click below to copy the merge tag to your clipboard.</h2>
-				<pre class="output" id="output">...</pre>
+				<textarea class="output" id="output">...</textarea>
 			</div>
 	</div>
+</form>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="script.js"></script>
 </body>

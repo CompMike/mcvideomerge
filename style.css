@@ -273,13 +273,19 @@ input:-webkit-autofill {
 	clear: both;
 }
 .output {
+	width: 100%;
 	margin: .5em 0;
 	font-size: 2em;
 	font-weight: bold;
 	color: #fff;
 	cursor: pointer;
 	word-wrap: break-word;
+	white-space: pre-wrap;
 	background-color: #72c1b0;
 	border-radius: 3px;
 	padding: 1em;
+	text-align: center;
+}
+.output:focus {
+	outline: 0;
 }
