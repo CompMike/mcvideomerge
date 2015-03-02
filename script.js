@@ -10,6 +10,7 @@ var ytid;
 var input;
 var vmid;
 var vzid;
+var wsid;
 
 //Youtube Regex
 //http://www.rubular.com/r/j5oqOj62df
@@ -17,15 +18,21 @@ var yt = /^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/
 
 //Vimeo Regex will match urls of the type below
 //http://www.rubular.com/r/cWKFAxHM30
-//Needs to support these formats:
+//Supports this format:
 //https://vimeo.com/*
+//Needs to support:
 //https://vimeo.com/channels/*/*
 //https://vimeo.com/groups/*/videos/*
+//https://vimeo.com/channels/staffpicks/120433187
 var vm = /vimeo.com\/(\d+)($|\/)/;
 
 //http://view.vzaar.com/344767.flashplayer
 //http://www.rubular.com/r/CkKZyVnBOi
 var vz = /vzaar.com\/(\d+)/;
+
+//http://rubular.com/r/0UfFCWOarO
+//http://home.wistia.com/m/msLUn
+var ws = /home.wistia.com\/m\/(\w+)($|\/)/;
 
 //grab the link from the input field and stop default action
 var findService = function(service,url) {
@@ -38,6 +45,9 @@ var findService = function(service,url) {
 	} else if(service === "vzaar"){
 		output = "*|VZAAR:[$vid=";
 		$("#output").html(output+ vzid + "]|*");
+	} else if(service === "wistia"){
+		output = "*|WISTIA:[$vid=";
+		$("#output").html(output+ wsid + "]|*");
 	}
 }
 $('#submit').on("click", function(){
@@ -49,17 +59,19 @@ $('#submit').on("click", function(){
 	}
 	if (input.match(vm) != null) {
 		vmid = input.match(vm)[1];
-		console.log("something");
 		console.log("this is vimeo");
 		findService("vimeo",input);
 	}
 	if (input.match(vz) != null) {
 	vzid = input.match(vz)[1];
-	console.log("something");
 	console.log("this is vzaar");
 	findService("vzaar",input);
 	}
-	//find service
+	if (input.match(ws) != null) {
+	wsid = input.match(ws)[1];
+	console.log("this is wistia");
+	findService("wistia",input);
+	}
 });
 
 //Options
@@ -86,7 +98,7 @@ var addOptions = function() {
 		 options += ", $views=Y";
 		}
 		if(document.getElementById("watch_url").checked) {
-		 options += ", $watch_URL=Y";
+		 options += ", $watch_URL=[insert watch url for wistia]";
 		}
 		var endMergeTag = "]|*";
 	  var completeMergeTag = output + options  + endMergeTag;
