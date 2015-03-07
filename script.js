@@ -1,8 +1,8 @@
 $(document).ready(function(){
-//open close options block
-var $options = $('#options');
-var $ob = $('#optionsBlock');
-$options.click(function() {
+//open close customize block
+var $customize = $('#customize');
+var $ob = $('#customizeBlock');
+$customize.click(function() {
 	$ob.toggleClass('show');
 });
 var output = "...";
@@ -35,7 +35,7 @@ var vz = /vzaar.com\/(\d+)/;
 var ws = /home.wistia.com\/m\/(\w+)($|\/)/;
 
 //grab the link from the input field and stop default action
-var findService = function(service,url) {
+var createMergeTag = function(service,url) {
 	if (service === "youtube") {
 		output = "*|YOUTUBE:[$vid="+ ytid;
 		$("#output").html(output + "]|*");
@@ -55,22 +55,22 @@ $('#submit').on("click", function(){
 	if (input.match(yt) != null) {
 		ytid = input.match(yt)[4];
 		console.log("this is youtube");
-		findService("youtube",input);
+		createMergeTag("youtube",input);
 	}
 	if (input.match(vm) != null) {
 		vmid = input.match(vm)[1];
 		console.log("this is vimeo");
-		findService("vimeo",input);
+		createMergeTag("vimeo",input);
 	}
 	if (input.match(vz) != null) {
 		vzid = input.match(vz)[1];
 		console.log("this is vzaar");
-		findService("vzaar",input);
+		createMergeTag("vzaar",input);
 	}
 	if (input.match(ws) != null) {
 		wsid = input.match(ws)[1];
 		console.log("this is wistia");
-		findService("wistia",input);
+		createMergeTag("wistia",input);
 	}
 });
 

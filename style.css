@@ -118,7 +118,7 @@ header {
 	border: 2px solid #52bad5;
 	outline: none;
 }
-.options {
+.customize {
 	height: 33px;
 	padding: 0 18px;
 	margin: 2em 0 2em 0;
@@ -135,10 +135,10 @@ header {
 	-webkit-appearance: none;
 	cursor: pointer;
 }
-.options:hover {
+.customize:hover {
 	background-color: #616161;
 }
-.options:focus {
+.customize:focus {
 	outline:0;
 }
 .process {
@@ -151,7 +151,7 @@ header {
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-.optionsBlock {
+.customizeBlock {
 	width: 100%;
 	float: left;
 	position: absolute;
@@ -159,7 +159,7 @@ input:-webkit-autofill {
 	top:0;
 	opacity: 0;
 }
-.optionsBlock.show {
+.customizeBlock.show {
 	position: relative;
 	left:0;
 	top: 0;
@@ -168,14 +168,14 @@ input:-webkit-autofill {
 	-ms-transition: opacity 0.5s ease-in-out 0s;
 	transition: opacity 0.5s ease-in-out 0s;
 }
-.optionsBlock ul li{
+.customizeBlock ul li{
 	float: left;
 	text-align: center;
 	display: inline-block;
 	width: 33%;
 	padding: 2em;
 }
-.optionsBlock input {
+.customizeBlock input {
 	display: inline;
 }
 .switch {
